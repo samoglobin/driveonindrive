@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Thank You | Drive on inDrive</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --green: #2ecc40;
+    --green-dark: #1f9d2f;
+    --black: #0b0b0b;
+    --white: #ffffff;
+    --grey: #5c5c5c;
+    --soft: #f2faf3;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Ubuntu', Arial, sans-serif;
+    background: var(--soft);
+    color: var(--black);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+  header {
+    background: var(--black);
+    padding: 16px 20px;
+  }
+  .logo {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    color: var(--white);
+    font-weight: 700;
+    font-size: 1.15rem;
+  }
+  .logo-mark {
+    width: 38px;
+    height: 38px;
+    background: var(--green);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .logo-mark svg { width: 22px; height: 22px; }
+  main {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 32px 16px;
+  }
+  .card {
+    background: var(--white);
+    max-width: 520px;
+    width: 100%;
+    border-radius: 20px;
+    padding: 40px 28px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    border-top: 6px solid var(--green);
+  }
+  .icon {
+    width: 72px;
+    height: 72px;
+    margin: 0 auto 20px;
+    background: var(--soft);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .icon svg { width: 36px; height: 36px; }
+  h1 { font-size: 1.7rem; margin-bottom: 14px; }
+  p { color: var(--grey); line-height: 1.6; margin-bottom: 14px; }
+  .note {
+    background: var(--soft);
+    border-left: 4px solid var(--green);
+    text-align: left;
+    padding: 14px 16px;
+    border-radius: 8px;
+    color: var(--black);
+    margin: 22px 0 26px;
+  }
+  .btn {
+    display: block;
+    width: 100%;
+    padding: 15px 20px;
+    border-radius: 12px;
+    font-family: inherit;
+    font-size: 1rem;
+    font-weight: 700;
+    text-decoration: none;
+    margin-top: 12px;
+    transition: transform .15s ease, background .15s ease;
+  }
+  .btn:hover { transform: translateY(-2px); }
+  .btn-primary { background: var(--green); color: var(--black); }
+  .btn-primary:hover { background: var(--green-dark); color: var(--white); }
+  .btn-outline { border: 2px solid var(--black); color: var(--black); background: transparent; }
+  footer {
+    text-align: center;
+    padding: 18px;
+    font-size: .85rem;
+    color: var(--grey);
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <a class="logo" href="index.html" aria-label="Drive on inDrive home">
+    <span class="logo-mark">
+      <svg viewBox="0 0 24 24" fill="#0b0b0b" aria-hidden="true"><path d="M3 11l18-8-8 18-2-8-8-2z"/></svg>
+    </span>
+    Drive on inDrive
+  </a>
+</header>
+
+<main>
+  <div class="card">
+    <div class="icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#1f9d2f" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>
+    </div>
+    <h1>Thank you for your time!</h1>
+    <p>We really appreciate your interest in Drive on inDrive.</p>
+    <div class="note">
+      Right now, we are only registering drivers who <strong>do not already drive on inDrive</strong>. Since you are already on the platform, there is nothing more you need to do.
+    </div>
+    <p>Know a driver in Lagos or Abuja who is not on inDrive yet? Send them our way and help them start earning.</p>
+
+    <a class="btn btn-primary" id="shareBtn" href="#" target="_blank" rel="noopener">Share with a driver friend</a>
+    <a class="btn btn-outline" href="index.html">Back to home</a>
+  </div>
+</main>
+
+<footer>&copy; <span id="year"></span> Drive on inDrive</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // Build a WhatsApp share link that points to the site's index page
+  var home = new URL('index.html', window.location.href).href;
+  var msg = 'Not driving on inDrive yet? Get registered with Drive on inDrive and start earning: ' + home;
+  document.getElementById('shareBtn').href = 'https://wa.me/?text=' + encodeURIComponent(msg);
+</script>
+</body>
+</html>
